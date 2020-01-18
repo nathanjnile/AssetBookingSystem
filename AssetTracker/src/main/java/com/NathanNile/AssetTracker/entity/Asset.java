@@ -1,11 +1,31 @@
 package com.NathanNile.AssetTracker.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "asset_table")
 public class Asset {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
+	
+	@Column(name = "asset_name")
 	private String assetName;
+	
+	@Column(name = "asset_type")
 	private String assetType;
+	
+	@Column(name = "asset_owner_email")
 	private String assetOwnerEmail;
+	
+	@Column(name = "home_location")
 	private String homeLocation;
 	
 	public Asset () {
