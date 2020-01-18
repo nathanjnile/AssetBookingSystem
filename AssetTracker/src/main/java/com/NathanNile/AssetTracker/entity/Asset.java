@@ -1,11 +1,18 @@
 package com.NathanNile.AssetTracker.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "asset_table")
@@ -27,6 +34,10 @@ public class Asset {
 	
 	@Column(name = "home_location")
 	private String homeLocation;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "asset_id")
+	private List<Booking> bookings;
 	
 	public Asset () {
 	}
