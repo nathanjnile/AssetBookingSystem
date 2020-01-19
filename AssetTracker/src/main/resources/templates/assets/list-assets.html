@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Employee Director</title>
+</head>
+
+
+<body>
+
+	<h3>Asset Directory</h3>
+	<hr>
+	
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Asset Name</th>
+				<th>Asset Type</th>
+				<th>Email</th>		
+				<th>Home Location</th>		
+			</tr>
+		</thead>
+	
+	
+		<tbody>
+			<tr th:each="tempAsset : ${assets}">
+			
+				<td th:text="${tempAsset.assetName}"/>
+				<td th:text="${tempAsset.assetType}"/>
+				<td th:text="${tempAsset.assetOwnerEmail}"/>
+				<td th:text="${tempAsset.homeLocation}"/>
+				
+			</tr>
+		</tbody>
+		
+	</table>
+
+
+
+</body>
+ </html>
