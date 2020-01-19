@@ -82,6 +82,14 @@ public class Asset {
 	public void setHomeLocation(String homeLocation) {
 		this.homeLocation = homeLocation;
 	}
+	
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
 
 	public Asset(String assetName, String assetType, String assetOwnerEmail, String homeLocation) {
 		this.assetName = assetName;
