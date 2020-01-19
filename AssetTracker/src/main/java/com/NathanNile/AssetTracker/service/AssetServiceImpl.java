@@ -1,6 +1,7 @@
 package com.NathanNile.AssetTracker.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,26 +21,35 @@ public class AssetServiceImpl implements AssetService {
 	
 	@Override
 	public List<Asset> findAll() {
-		
-		
-		return null;
+		return assetRepository.findAll();
 	}
 
 	@Override
 	public Asset findById(int theId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Optional<Asset> result = assetRepository.findById(theId);
+		
+		Asset theAsset = null;
+		
+		if (result.isPresent()) {
+			theAsset = result.get();
+		}
+		else {
+			throw new RuntimeException("Did not find asset id - " + theId);
+		}
+		
+		return theAsset;
 	}
 
 	@Override
 	public void save(Asset theAsset) {
-		// TODO Auto-generated method stub
+		assetRepository.save(theAsset);
 		
 	}
 
 	@Override
 	public void deleteById(int theId) {
-		// TODO Auto-generated method stub
+		assetRepository.deleteById(theId);
 		
 	}
 
