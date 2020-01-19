@@ -14,24 +14,25 @@ import com.NathanNile.AssetTracker.service.AssetService;
 import com.NathanNile.AssetTracker.service.BookingService;
 
 @Controller
-@RequestMapping("/assets")
-public class AssetController {
+@RequestMapping("/bookings")
+public class BookingController {
 	
-	private AssetService assetService;
+	private BookingService bookingService;
 	
 	@Autowired
-	public AssetController(AssetService theAssetService) {
-		assetService = theAssetService;
+	public BookingController(BookingService theBookingService) {
+		bookingService = theBookingService;
 	}
 	
+	
 	@GetMapping("/list")
-	public String showList(Model theModel) {
+	public String showBookingsList(Model theModel) {
 		
-		List<Asset> theAssets = assetService.findAll();
+		List<Booking> theBookings = bookingService.findAll();
 		
-		theModel.addAttribute("assets", theAssets);
+		theModel.addAttribute("bookings", theBookings);
 		
-		return "assets/list-assets";
+		return "bookings/list-bookings";
 	}
 	
 }
