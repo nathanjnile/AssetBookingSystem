@@ -1,5 +1,6 @@
 package com.NathanNile.AssetTracker.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -87,6 +88,15 @@ public class Asset {
 		this.assetType = assetType;
 		this.assetOwnerEmail = assetOwnerEmail;
 		this.homeLocation = homeLocation;
+	}
+	
+public void addBooking(Booking theBooking) {
+		
+		if(bookings == null) {
+			bookings = new ArrayList<>();
+		}
+		
+		bookings.add(theBooking);
 	}
 
 	@Override
