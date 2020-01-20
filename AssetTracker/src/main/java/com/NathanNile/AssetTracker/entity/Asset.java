@@ -90,7 +90,7 @@ public class Asset {
 	public void setBookings(List<Booking> bookings) {
 		this.bookings = bookings;
 	}
-
+	
 	public Asset(String assetName, String assetType, String assetOwnerEmail, String homeLocation) {
 		this.assetName = assetName;
 		this.assetType = assetType;

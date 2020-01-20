@@ -27,7 +27,9 @@ public class AssetController {
 	@GetMapping("/list")
 	public String showList(Model theModel) {
 		
-		List<Asset> theAssets = assetService.findAll();
+		//List<Asset> theAssets = assetService.findAll();
+		
+		List<Asset> theAssets = assetService.findAllByAssetName("Wrench");
 		
 		theModel.addAttribute("assets", theAssets);
 		

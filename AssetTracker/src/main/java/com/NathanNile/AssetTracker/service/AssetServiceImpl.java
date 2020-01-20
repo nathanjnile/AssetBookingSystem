@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.NathanNile.AssetTracker.dao.AssetRepository;
 import com.NathanNile.AssetTracker.entity.Asset;
+import com.NathanNile.AssetTracker.entity.Booking;
 
 @Service
 public class AssetServiceImpl implements AssetService {
@@ -43,8 +44,7 @@ public class AssetServiceImpl implements AssetService {
 
 	@Override
 	public void save(Asset theAsset) {
-		assetRepository.save(theAsset);
-		
+		assetRepository.save(theAsset);	
 	}
 
 	@Override
@@ -53,4 +53,10 @@ public class AssetServiceImpl implements AssetService {
 		
 	}
 
+	@Override
+	public List<Asset> findAllByAssetName(String assetName) {
+		return assetRepository.findAllByAssetName(assetName);
+	}
+	
+	
 }
