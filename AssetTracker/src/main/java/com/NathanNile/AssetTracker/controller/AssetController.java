@@ -37,4 +37,18 @@ public class AssetController {
 		return "assets/list-assets-test";
 	}
 	
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model theModel) {
+		
+		// create model attribute to bind form data
+		Asset theAsset = new Asset();
+		
+		Booking theBooking = new Booking();
+		
+		theModel.addAttribute("booking", theBooking);
+		
+		return "assets/asset-form";
+		
+	}
+	
 }
