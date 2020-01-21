@@ -30,11 +30,13 @@ public class AssetController {
 		
 		List<Asset> theAssets = assetService.findAll();
 		
+		//System.out.println(theAssets.get(3).getBookings().get(3).getBookerFirstName());
+		
 		//List<Asset> theAssets = assetService.findAllByAssetName("Wrench");
 		
 		theModel.addAttribute("assets", theAssets);
 		
-		return "assets/list-assets-test";
+		return "assets/list-assets";
 	}
 	
 	@GetMapping("/showFormForAdd")
