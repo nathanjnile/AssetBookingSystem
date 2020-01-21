@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.NathanNile.AssetTracker.dao.AssetRepository;
 import com.NathanNile.AssetTracker.entity.Asset;
 import com.NathanNile.AssetTracker.entity.Booking;
+import com.NathanNile.AssetTracker.entity.BookingDTO;
 
 @Service
 public class AssetServiceImpl implements AssetService {
@@ -57,6 +58,16 @@ public class AssetServiceImpl implements AssetService {
 	public List<Asset> findAllByAssetName(String assetName) {
 		return assetRepository.findAllByAssetName(assetName);
 	}
+
+	@Override
+	public List<Asset> findByBookingsAssetId(int assetId) {
+		return assetRepository.findByBookingsAssetId(assetId);
+	}
+
+//	@Override
+//	public List<BookingDTO> fetchBookingDTOInnerJoin() {
+//		return assetRepository.fetchBookingDTOInnerJoin();
+//	}
 	
 	
 }

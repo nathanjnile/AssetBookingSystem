@@ -43,8 +43,8 @@ public class Booking {
 	@Temporal(TemporalType.DATE)
 	private Date endOfBooking;
 	
-	//@Column(name = "asset_id")
-	//private int assetId;
+	@Column(name = "asset_id")
+	private int assetId;
 	
 	public Booking() {
 	}

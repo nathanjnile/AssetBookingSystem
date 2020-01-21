@@ -27,8 +27,7 @@
 				<th>Asset Name</th>
 				<th>Asset Type</th>
 				<th>Email</th>		
-				<th>Home Location</th>	
-				<th>Booker Name</th>		
+				<th>Home Location</th>		
 			</tr>
 		</thead>
 	
@@ -40,13 +39,6 @@
 				<td th:text="${tempAsset.assetType}"/>
 				<td th:text="${tempAsset.assetOwnerEmail}"/>
 				<td th:text="${tempAsset.homeLocation}"/>
-				<td th:text="${tempAsset.bookings}"/>
-
-			</tr>
-			<tr th:each="tempBooking : ${bookings}">
-			
-				<td th:text="${tempBooking.bookerFirstName}"/>
-				
 				
 			</tr>
 			

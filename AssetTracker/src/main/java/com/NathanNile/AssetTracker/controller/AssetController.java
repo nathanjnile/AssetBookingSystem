@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.NathanNile.AssetTracker.entity.Asset;
 import com.NathanNile.AssetTracker.entity.Booking;
+import com.NathanNile.AssetTracker.entity.BookingDTO;
 import com.NathanNile.AssetTracker.service.AssetService;
 import com.NathanNile.AssetTracker.service.BookingService;
 
@@ -27,13 +28,13 @@ public class AssetController {
 	@GetMapping("/list")
 	public String showList(Model theModel) {
 		
-		//List<Asset> theAssets = assetService.findAll();
+		List<Asset> theAssets = assetService.findAll();
 		
-		List<Asset> theAssets = assetService.findAllByAssetName("Wrench");
+		//List<Asset> theAssets = assetService.findAllByAssetName("Wrench");
 		
 		theModel.addAttribute("assets", theAssets);
 		
-		return "assets/list-assets";
+		return "assets/list-assets-test";
 	}
 	
 }
