@@ -7,9 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "booking_table")
@@ -36,17 +40,44 @@ public class Booking {
 	private String siteLocation;
 	
 	@Column(name = "start_of_booking")
-	@Temporal(TemporalType.DATE)
-	private Date startOfBooking;
+	//@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "YYYY-MM-dd")
+	private String startOfBooking;
+	
 	
 	@Column(name = "end_of_booking")
-	@Temporal(TemporalType.DATE)
-	private Date endOfBooking;
+	//@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "YYYY-MM-dd")
+	private String endOfBooking;
 	
 	@Column(name = "asset_id")
 	private int assetId;
 	
+//	@ManyToOne
+//	@JoinColumn(name = "id", nullable=false)
+//	private Asset asset;
+//	
+//	
+//	
+//	public Asset getAsset() {
+//		return asset;
+//	}
+//
+//	public void setAsset(Asset asset) {
+//		this.asset = asset;
+//	}
+
+	
+	
 	public Booking() {
+	}
+
+	public int getAssetId() {
+		return assetId;
+	}
+
+	public void setAssetId(int assetId) {
+		this.assetId = assetId;
 	}
 
 	public int getBookingId() {
@@ -97,24 +128,24 @@ public class Booking {
 		this.siteLocation = siteLocation;
 	}
 
-	public Date getStartOfBooking() {
+	public String getStartOfBooking() {
 		return startOfBooking;
 	}
 
-	public void setStartOfBooking(Date startOfBooking) {
+	public void setStartOfBooking(String startOfBooking) {
 		this.startOfBooking = startOfBooking;
 	}
 
-	public Date getEndOfBooking() {
+	public String getEndOfBooking() {
 		return endOfBooking;
 	}
 
-	public void setEndOfBooking(Date endOfBooking) {
+	public void setEndOfBooking(String endOfBooking) {
 		this.endOfBooking = endOfBooking;
 	}
 
 	public Booking(String bookerFirstName, String bookerLastName, String bookerEmail, String officeLocation,
-			String siteLocation, Date startOfBooking, Date endOfBooking) {
+			String siteLocation, String startOfBooking, String endOfBooking) {
 		this.bookerFirstName = bookerFirstName;
 		this.bookerLastName = bookerLastName;
 		this.bookerEmail = bookerEmail;
@@ -122,6 +153,11 @@ public class Booking {
 		this.siteLocation = siteLocation;
 		this.startOfBooking = startOfBooking;
 		this.endOfBooking = endOfBooking;
+	}
+	
+	
+	public Booking(int assetId) {
+		this.assetId = assetId;
 	}
 
 	@Override

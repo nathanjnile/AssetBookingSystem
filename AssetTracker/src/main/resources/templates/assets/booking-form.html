@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+	<title>Save Asset</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Booking Directory</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Booking</p>
+		
+		<form action="#" th:action="@{/assets/saveBooking}"
+						 th:object="${booking}" method="POST">
+					
+				<!-- Add hidden form field to handle the update -->	
+				
+				
+				
+				<input type="hidden" th:field="*{assetId}"/>  
+						 
+				<input type="text" th:field="*{bookerFirstName}"
+					   class="form-control mb-4 col-4" placeholder="Booker First Name">
+					   
+				<input type="text" th:field="*{bookerLastName}"
+					   class="form-control mb-4 col-4" placeholder="Booker Last Name">
+					   
+				<input type="text" th:field="*{bookerEmail}"
+					   class="form-control mb-4 col-4" placeholder="Booker Email">
+					   
+				<input type="text" th:field="*{officeLocation}"
+					   class="form-control mb-4 col-4" placeholder="Office Location">
+					   
+				<input type="text" th:field="*{siteLocation}"
+					   class="form-control mb-4 col-4" placeholder="Site Location">
+					   
+				<input type="date" th:field="*{startOfBooking}"
+					   class="form-control mb-4 col-4" placeholder="startOfBooking">
+					   
+				<input type="date" th:field="*{endOfBooking}"
+					   class="form-control mb-4 col-4" placeholder="endOfBooking">	   	   
+		
+				<button type="submit" class="btn btn-info col-2">Save</button>
+		
+		</form>
+		
+		<hr>
+		<a th:href="@{/assets/list}">Back to Asset List</a>
+	
+	</div>
+
+</body>
+ </html>
