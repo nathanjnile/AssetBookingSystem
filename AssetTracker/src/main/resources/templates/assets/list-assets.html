@@ -32,7 +32,7 @@
 			<tr>
 				<th>Asset Name</th>
 				<th>Asset Type</th>
-				<th>Email</th>		
+				<th>Owner Email</th>		
 				<th>Home Location</th>
 				<th>Id</th>
 				<th>Action</th>
@@ -49,10 +49,10 @@
 				<td th:text="${tempAsset.assetOwnerEmail}"/>
 				<td th:text="${tempAsset.homeLocation}"/>
 				<td th:text="${tempAsset.id}"/>
-				<td>
+				<td style="text-align:center">
 				
 					<a th:href="@{/assets/showFormForBooking(assetId=${tempAsset.id})}"
-					   class="btn btn-info btn-sm">
+					   class="btn btn-success btn-sm">
 						Book
 					</a>
 				|	
