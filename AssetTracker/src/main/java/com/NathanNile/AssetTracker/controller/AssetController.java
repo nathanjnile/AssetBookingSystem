@@ -83,6 +83,10 @@ public class AssetController {
 		
 		// set employee as a model attribute to pre-populate the form
 		theModel.addAttribute("booking", theBooking);
+		
+		Asset theAsset = assetService.findById(theId);
+		
+		theModel.addAttribute("asset", theAsset);
 				
 		// send over to our form
 		

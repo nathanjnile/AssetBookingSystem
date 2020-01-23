@@ -21,14 +21,27 @@
 		<hr>
 		
 		<p class="h4 mb-4">Save Booking</p>
-		
+		<b class="h4 mb-4">Asset Name:</b>
+		<br>
+		<b class="h5 mb-5" th:text="${asset.assetName}"></b>
+		<br><br/>
+		<b class="h4 mb-4">Asset Type:</b>
+		<br>
+		<b class="h5 mb-5" th:text="${asset.assetType}"></b>
+		<br><br/>
+		<b class="h4 mb-4">Home Location:</b>
+		<br>
+		<b class="h5 mb-5" th:text="${asset.homeLocation}"></b>
+		<br><br/>
+		<b class="h4 mb-4">Asset Owner's Email:</b>
+		<br>
+		<b class="h5 mb-5" th:text="${asset.assetOwnerEmail}"></b>
+		<br><br/>
 		<form action="#" th:action="@{/assets/saveBooking}"
 						 th:object="${booking}" method="POST">
 					
 				<!-- Add hidden form field to handle the update -->	
-				
-				
-				
+		
 				<input type="hidden" th:field="*{assetId}"/>  
 						 
 				<input type="text" th:field="*{bookerFirstName}"
