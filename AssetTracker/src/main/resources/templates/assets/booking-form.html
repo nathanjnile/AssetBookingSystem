@@ -15,12 +15,21 @@
 
 <body>
 
-	<div class="container">
-	
-		<h3>Booking Directory</h3>
+<div class="container">
+
+ <h3>Booking Directory</h3>
 		<hr>
 		
-		<p class="h4 mb-4">Save Booking</p>
+</div>
+
+<div class="container">
+  <div class="row">
+  
+
+
+
+	<div class="col-sm">
+	
 		<b class="h4 mb-4">Asset Name:</b>
 		<br>
 		<b class="h5 mb-5" th:text="${asset.assetName}"></b>
@@ -37,7 +46,50 @@
 		<br>
 		<b class="h5 mb-5" th:text="${asset.assetOwnerEmail}"></b>
 		<br><br/>
-		<form action="#" th:action="@{/assets/saveBooking}"
+		
+	</div>
+	
+	<div class="col-sm">
+	
+	
+	
+	<table class="table table-bordered table-striped table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th>Booker First Name</th>
+				<th>Booker Last Name</th>
+				<th>Booker Email</th>		
+				<th>Office Location</th>
+				<th>Site Location</th>
+				<th>Start of Booking</th>
+				<th>End of Booking</th>
+						
+			</tr>
+		</thead>
+	
+	
+		<tbody>
+			<tr th:each="tempBookings : ${asset.bookings}">
+			
+				<td th:text="${tempBookings.bookerFirstName}"/>
+				<td th:text="${tempBookings.bookerLastName}"/>
+				<td th:text="${tempBookings.bookerEmail}"/>
+				<td th:text="${tempBookings.officeLocation}"/>
+				<td th:text="${tempBookings.siteLocation}"/>
+				<td th:text="${tempBookings.startOfBooking}"/>
+				<td th:text="${tempBookings.endOfBooking}"/>
+				
+			</tr>
+			
+		</tbody>
+		
+	</table>
+	
+	</div>
+	
+	<div class="container">
+	
+	<form action="#" th:action="@{/assets/saveBooking}"
 						 th:object="${booking}" method="POST">
 					
 				<!-- Add hidden form field to handle the update -->	
@@ -45,34 +97,39 @@
 				<input type="hidden" th:field="*{assetId}"/>  
 						 
 				<input type="text" th:field="*{bookerFirstName}"
-					   class="form-control mb-4 col-4" placeholder="Booker First Name">
+					   class="form-control mb-3 col-3" placeholder="Booker First Name">
 					   
 				<input type="text" th:field="*{bookerLastName}"
-					   class="form-control mb-4 col-4" placeholder="Booker Last Name">
+					   class="form-control mb-3 col-3" placeholder="Booker Last Name">
 					   
 				<input type="text" th:field="*{bookerEmail}"
-					   class="form-control mb-4 col-4" placeholder="Booker Email">
+					   class="form-control mb-3 col-3" placeholder="Booker Email">
 					   
 				<input type="text" th:field="*{officeLocation}"
-					   class="form-control mb-4 col-4" placeholder="Office Location">
+					   class="form-control mb-3 col-3" placeholder="Office Location">
 					   
 				<input type="text" th:field="*{siteLocation}"
-					   class="form-control mb-4 col-4" placeholder="Site Location">
+					   class="form-control mb-3 col-3" placeholder="Site Location">
 					   
 				<input type="date" th:field="*{startOfBooking}"
-					   class="form-control mb-4 col-4" placeholder="startOfBooking">
+					   class="form-control mb-3 col-3" placeholder="startOfBooking">
 					   
 				<input type="date" th:field="*{endOfBooking}"
-					   class="form-control mb-4 col-4" placeholder="endOfBooking">	   	   
+					   class="form-control mb-3 col-3" placeholder="endOfBooking">	   	   
 		
-				<button type="submit" class="btn btn-info col-2">Save</button>
+				<button type="submit" class="btn btn-info col-3" onclick="if (!(confirm('Are you sure you want to book this asset?'))) return false">Save</button>
 		
 		</form>
 		
 		<hr>
 		<a th:href="@{/assets/list}">Back to Asset List</a>
 	
+	
 	</div>
 
+
+
+ </div>
+</div>
 </body>
  </html>
