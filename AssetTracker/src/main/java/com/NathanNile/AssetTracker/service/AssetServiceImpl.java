@@ -64,6 +64,16 @@ public class AssetServiceImpl implements AssetService {
 		return assetRepository.findByBookingsAssetId(assetId);
 	}
 
+	@Override
+	public List<Asset> findAllByAssetType(String assetType) {
+		return assetRepository.findAllByAssetType(assetType);
+	}
+
+	@Override
+	public List<Asset> findAllByHomeLocation(String homeLocation) {
+		return assetRepository.findAllByHomeLocation(homeLocation);
+	}
+
 //	@Override
 //	public List<BookingDTO> fetchBookingDTOInnerJoin() {
 //		return assetRepository.fetchBookingDTOInnerJoin();

@@ -35,14 +35,84 @@ public class AssetController {
 		
 		List<Asset> theAssets = assetService.findAll();
 		
-		//System.out.println(theAssets.get(3).getBookings().get(3).getBookerFirstName());
+		theModel.addAttribute("assets", theAssets);
 		
-		//List<Asset> theAssets = assetService.findAllByAssetName("Wrench");
+		return "assets/list-assets";
+	}
+	
+	@GetMapping("/list/handtools")
+	public String showListHandTools(Model theModel) {
+		
+		String typeTools = "Hand Tools";
+		
+		List<Asset> theAssets = assetService.findAllByAssetType(typeTools);
 		
 		theModel.addAttribute("assets", theAssets);
 		
 		return "assets/list-assets";
 	}
+	
+	@GetMapping("/list/powertools")
+	public String showListPowerTools(Model theModel) {
+		
+		String typeTools = "Power Tools";
+		
+		List<Asset> theAssets = assetService.findAllByAssetType(typeTools);
+		
+		theModel.addAttribute("assets", theAssets);
+		
+		return "assets/list-assets";
+	}
+	
+	@GetMapping("/list/machinetools")
+	public String showListMachineTools(Model theModel) {
+		
+		String typeTools = "Machine Tools";
+		
+		List<Asset> theAssets = assetService.findAllByAssetType(typeTools);
+		
+		theModel.addAttribute("assets", theAssets);
+		
+		return "assets/list-assets";
+	}
+	
+	@GetMapping("/list/bristol")
+	public String showListBristol(Model theModel) {
+		
+		String location = "Bristol";
+		
+		List<Asset> theAssets = assetService.findAllByHomeLocation(location);
+		
+		theModel.addAttribute("assets", theAssets);
+		
+		return "assets/list-assets";
+	}
+	
+	@GetMapping("/list/bath")
+	public String showListBath(Model theModel) {
+		
+		String location = "Bath";
+		
+		List<Asset> theAssets = assetService.findAllByHomeLocation(location);
+		
+		theModel.addAttribute("assets", theAssets);
+		
+		return "assets/list-assets";
+	}
+	
+	@GetMapping("/list/portishead")
+	public String showListPortishead(Model theModel) {
+		
+		String location = "Portishead";
+		
+		List<Asset> theAssets = assetService.findAllByHomeLocation(location);
+		
+		theModel.addAttribute("assets", theAssets);
+		
+		return "assets/list-assets";
+	}
+	
+	
 	
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {

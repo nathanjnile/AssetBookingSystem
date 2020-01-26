@@ -12,6 +12,10 @@ public interface AssetRepository extends JpaRepository<Asset, Integer> {
 
 	List<Asset> findAllByAssetName(String assetName);
 	
+	List<Asset> findAllByAssetType(String assetType);
+	
+	List<Asset> findAllByHomeLocation(String homeLocation);
+	
 //	@Query("SELECT new com.NathanNile.AssetTracker.entity.BookingDTO(c.AssetName, o.bookerFirstName, o.bookerLastName, o.bookerEmail, o.officeLocation, o.siteLocation, o.startOfBooking, o.endOfBooking, o.bookingId) "
 //			+ "FROM Asset c INNER JOIN Booking o")
 //	List<BookingDTO> fetchBookingDTOInnerJoin();

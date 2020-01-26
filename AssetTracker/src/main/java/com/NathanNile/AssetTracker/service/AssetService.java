@@ -15,6 +15,10 @@ public interface AssetService {
 	
 	public List<Asset> findAllByAssetName(String assetName);
 	
+	public List<Asset> findAllByAssetType(String assetType);
+	
+	public List<Asset> findAllByHomeLocation(String homeLocation);
+	
 	public Asset findById(int theId);
 	
 	public void save(Asset theAsset);
