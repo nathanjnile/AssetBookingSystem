@@ -20,8 +20,20 @@ import com.NathanNile.AssetTracker.service.BookingService;
 @RequestMapping("/")
 public class HomeController {
 	
+	private AssetService assetService;
+	
+	@Autowired
+	public HomeController(AssetService theAssetService) {
+		assetService = theAssetService;
+	}
+	
 	@GetMapping("/home")
-	public String showHome() {
+	public String showHome(Model theModel) {
+		
+		List<Asset> theAssets = assetService.findAll();
+		
+		theModel.addAttribute("assets", theAssets);
+		
 		return "home/home-page";
 	}
 }

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.NathanNile.AssetTracker.dao.AssetRepository;
 import com.NathanNile.AssetTracker.entity.Asset;
 import com.NathanNile.AssetTracker.entity.Booking;
-import com.NathanNile.AssetTracker.entity.BookingDTO;
 
 @Service
 public class AssetServiceImpl implements AssetService {

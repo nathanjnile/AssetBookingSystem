@@ -3,7 +3,6 @@ package com.NathanNile.AssetTracker.service;
 import java.util.List;
 
 import com.NathanNile.AssetTracker.entity.Asset;
-import com.NathanNile.AssetTracker.entity.BookingDTO;
 
 public interface AssetService {
 	

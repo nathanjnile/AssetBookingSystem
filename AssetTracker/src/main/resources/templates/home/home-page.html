@@ -66,9 +66,20 @@
 	Select Asset Home Location:
 	<select>
 	<option>Please select...</option>
-    <option value="bristol" th:href="@{/assets/list/bristol}">Bristol</option>
-    <option value="bath">Bath</option>
-    <option value="portishead">Portishead</option>
+    <option th:value="bristol" th:href="@{/assets/list/bristol}">Bristol</option>
+    <option th:value="bath">Bath</option>
+    <option th:value="portishead">Portishead</option>
+	</select>
+	
+	</div>
+	
+	<div class="container">
+	
+	<br><br/>
+	Select Asset Home Location:
+	<select th:field="*{assets}">
+	<option>Please select...</option>
+    <option th:each="assets: $" th:value="${asset}" th:href="@{/assets/list/bristol}">Bristol</option>
 	</select>
 	
 	</div>
