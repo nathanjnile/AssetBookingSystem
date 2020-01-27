@@ -18,9 +18,12 @@ public interface AssetService {
 	
 	public List<Asset> findAllByHomeLocation(String homeLocation);
 	
+	public List<String> findDistinctHomeLocation();
+	
 	public Asset findById(int theId);
 	
 	public void save(Asset theAsset);
 	
 	public void deleteById(int theId);
+	
 }

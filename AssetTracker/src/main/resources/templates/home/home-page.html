@@ -62,28 +62,32 @@
 		Portishead
 	</a>
 	
-	<br><br/>
-	Select Asset Home Location:
-	<select>
-	<option>Please select...</option>
-    <option th:value="bristol" th:href="@{/assets/list/bristol}">Bristol</option>
-    <option th:value="bath">Bath</option>
-    <option th:value="portishead">Portishead</option>
-	</select>
+	<div>
+	
+	<table class="table table-bordered table-striped table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th>Locations</th>
+				
+						
+			</tr>
+		</thead>
+	
+	
+		<tbody>
+			<tr th:each="tempLocation : ${locations}">
+			
+				<td th:text="${tempLocation}"/>
+			
+				
+			</tr>
+			
+		</tbody>
+		
+	</table>
+	
 	
 	</div>
 	
-	<div class="container">
-	
-	<br><br/>
-	Select Asset Home Location:
-	<select th:field="*{assets}">
-	<option>Please select...</option>
-    <option th:each="assets: $" th:value="${asset}" th:href="@{/assets/list/bristol}">Bristol</option>
-	</select>
-	
-	</div>
-
-
 </body>
  </html>

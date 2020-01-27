@@ -23,4 +23,7 @@ public interface AssetRepository extends JpaRepository<Asset, Integer> {
 	// public List<Asset> findAllByOrderByLastNameAsc();
 	
 	List<Asset> findByBookingsAssetId(int assetId);
+	
+	@Query("SELECT DISTINCT a.homeLocation FROM Asset a")
+	  List<String> findDistinctHomeLocation();
 }
