@@ -29,7 +29,7 @@ public class HomeController {
 	
 	@GetMapping("/home")
 	public String showHome(Model theModel) {
-		
+		//
 		List<Asset> theAssets = assetService.findAll();
 		
 		theModel.addAttribute("assets", theAssets);
