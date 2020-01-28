@@ -33,12 +33,6 @@ public class Booking {
 	@Column(name = "booker_email")
 	private String bookerEmail;
 	
-	@Column(name = "office_location")
-	private String officeLocation;
-	
-	@Column(name = "site_location")
-	private String siteLocation;
-	
 	@Column(name = "start_of_booking")
 	//@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "YYYY-MM-dd")
@@ -53,21 +47,7 @@ public class Booking {
 	@Column(name = "asset_id")
 	private int assetId;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "id", nullable=false)
-//	private Asset asset;
-//	
-//	
-//	
-//	public Asset getAsset() {
-//		return asset;
-//	}
-//
-//	public void setAsset(Asset asset) {
-//		this.asset = asset;
-//	}
 
-	
 	
 	public Booking() {
 	}
@@ -112,22 +92,6 @@ public class Booking {
 		this.bookerEmail = bookerEmail;
 	}
 
-	public String getOfficeLocation() {
-		return officeLocation;
-	}
-
-	public void setOfficeLocation(String officeLocation) {
-		this.officeLocation = officeLocation;
-	}
-
-	public String getSiteLocation() {
-		return siteLocation;
-	}
-
-	public void setSiteLocation(String siteLocation) {
-		this.siteLocation = siteLocation;
-	}
-
 	public String getStartOfBooking() {
 		return startOfBooking;
 	}
@@ -145,12 +109,10 @@ public class Booking {
 	}
 
 	public Booking(String bookerFirstName, String bookerLastName, String bookerEmail, String officeLocation,
-			String siteLocation, String startOfBooking, String endOfBooking) {
+			String startOfBooking, String endOfBooking) {
 		this.bookerFirstName = bookerFirstName;
 		this.bookerLastName = bookerLastName;
 		this.bookerEmail = bookerEmail;
-		this.officeLocation = officeLocation;
-		this.siteLocation = siteLocation;
 		this.startOfBooking = startOfBooking;
 		this.endOfBooking = endOfBooking;
 	}
@@ -163,8 +125,8 @@ public class Booking {
 	@Override
 	public String toString() {
 		return "Booking [bookingId=" + bookingId + ", bookerFirstName=" + bookerFirstName + ", bookerLastName="
-				+ bookerLastName + ", bookerEmail=" + bookerEmail + ", officeLocation=" + officeLocation
-				+ ", siteLocation=" + siteLocation + ", startOfBooking=" + startOfBooking + ", endOfBooking="
+				+ bookerLastName + ", bookerEmail=" + bookerEmail 
+				+  ", startOfBooking=" + startOfBooking + ", endOfBooking="
 				+ endOfBooking + "]";
 	}
 	

@@ -13,7 +13,6 @@ public interface AssetRepository extends JpaRepository<Asset, Integer> {
 	
 	List<Asset> findAllByAssetType(String assetType);
 	
-	List<Asset> findAllByHomeLocation(String homeLocation);
 	
 //	@Query("SELECT new com.NathanNile.AssetTracker.entity.BookingDTO(c.AssetName, o.bookerFirstName, o.bookerLastName, o.bookerEmail, o.officeLocation, o.siteLocation, o.startOfBooking, o.endOfBooking, o.bookingId) "
 //			+ "FROM Asset c INNER JOIN Booking o")
@@ -24,6 +23,4 @@ public interface AssetRepository extends JpaRepository<Asset, Integer> {
 	
 	List<Asset> findByBookingsAssetId(int assetId);
 	
-	@Query("SELECT DISTINCT a.homeLocation FROM Asset a")
-	  List<String> findDistinctHomeLocation();
 }

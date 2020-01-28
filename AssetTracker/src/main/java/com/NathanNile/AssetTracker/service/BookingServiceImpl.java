@@ -55,4 +55,9 @@ public class BookingServiceImpl implements BookingService {
 		
 	}
 
+	@Override
+	public List<Booking> findAllByOrderByStartOfBookingAsc() {
+		return bookingRepository.findAllByOrderByStartOfBookingAsc();
+	}
+
 }

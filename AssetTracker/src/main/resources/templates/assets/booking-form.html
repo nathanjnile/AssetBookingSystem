@@ -36,10 +36,6 @@
 		<br>
 		<b class="h5 mb-5" th:text="${asset.assetType}"></b>
 		<br><br/>
-		<b class="h4 mb-4">Home Location:</b>
-		<br>
-		<b class="h5 mb-5" th:text="${asset.homeLocation}"></b>
-		<br><br/>
 		<b class="h4 mb-4">Asset Owner's Email:</b>
 		<br>
 		<b class="h5 mb-5" th:text="${asset.assetOwnerEmail}"></b>
@@ -61,13 +57,7 @@
 					   
 				<input type="text" th:field="*{bookerEmail}"
 					   class="form-control mb-3 col-10" placeholder="Booker Email">
-					   
-				<input type="text" th:field="*{officeLocation}"
-					   class="form-control mb-3 col-10" placeholder="Office Location">
-					   
-				<input type="text" th:field="*{siteLocation}"
-					   class="form-control mb-3 col-10" placeholder="Site Location">
-					   
+				   
 				<input type="date" th:field="*{startOfBooking}"
 					   class="form-control mb-3 col-10" placeholder="startOfBooking">
 					   
@@ -92,7 +82,6 @@
 				<th>Booker Last Name</th>
 				<th>Booker Email</th>		
 				<th>Office Location</th>
-				<th>Site Location</th>
 				<th>Start of Booking</th>
 				<th>End of Booking</th>
 						
@@ -107,7 +96,6 @@
 				<td th:text="${tempBookings.bookerLastName}"/>
 				<td th:text="${tempBookings.bookerEmail}"/>
 				<td th:text="${tempBookings.officeLocation}"/>
-				<td th:text="${tempBookings.siteLocation}"/>
 				<td th:text="${tempBookings.startOfBooking}"/>
 				<td th:text="${tempBookings.endOfBooking}"/>
 				

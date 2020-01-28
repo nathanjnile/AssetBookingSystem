@@ -22,15 +22,15 @@ public class HomeController {
 		assetService = theAssetService;
 	}
 	
-	@GetMapping("/home")
-	public String showHome(Model theModel) {
-		
-		List<String> homeLocationx = new ArrayList<>();
-		
-		homeLocationx = assetService.findDistinctHomeLocation();
-		
-		theModel.addAttribute("locations", homeLocationx);
-		
-		return "home/home-page";
-	}
+//	@GetMapping("/home")
+//	public String showHome(Model theModel) {
+//		
+//		List<String> homeLocationx = new ArrayList<>();
+//		
+//		homeLocationx = assetService.findDistinctHomeLocation();
+//		
+//		theModel.addAttribute("locations", homeLocationx);
+//		
+//		return "home/home-page";
+//	}
 }

@@ -33,9 +33,6 @@ public class Asset {
 	@Column(name = "asset_owner_email")
 	private String assetOwnerEmail;
 	
-	@Column(name = "home_location")
-	private String homeLocation;
-	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "asset_id")
 	private List<Booking> bookings;
@@ -74,14 +71,6 @@ public class Asset {
 	public void setAssetOwnerEmail(String assetOwnerEmail) {
 		this.assetOwnerEmail = assetOwnerEmail;
 	}
-
-	public String getHomeLocation() {
-		return homeLocation;
-	}
-
-	public void setHomeLocation(String homeLocation) {
-		this.homeLocation = homeLocation;
-	}
 	
 	public List<Booking> getBookings() {
 		return bookings;
@@ -91,11 +80,10 @@ public class Asset {
 		this.bookings = bookings;
 	}
 	
-	public Asset(String assetName, String assetType, String assetOwnerEmail, String homeLocation) {
+	public Asset(String assetName, String assetType, String assetOwnerEmail) {
 		this.assetName = assetName;
 		this.assetType = assetType;
 		this.assetOwnerEmail = assetOwnerEmail;
-		this.homeLocation = homeLocation;
 	}
 	
 public void addBooking(Booking theBooking) {
@@ -110,7 +98,7 @@ public void addBooking(Booking theBooking) {
 	@Override
 	public String toString() {
 		return "Asset [id=" + id + ", assetName=" + assetName + ", assetType=" + assetType + ", assetOwnerEmail="
-				+ assetOwnerEmail + ", homeLocation=" + homeLocation + "]";
+				+ assetOwnerEmail + "]";
 	}
 	
 	

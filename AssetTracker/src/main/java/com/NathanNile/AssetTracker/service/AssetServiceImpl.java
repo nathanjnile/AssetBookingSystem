@@ -68,20 +68,4 @@ public class AssetServiceImpl implements AssetService {
 		return assetRepository.findAllByAssetType(assetType);
 	}
 
-	@Override
-	public List<Asset> findAllByHomeLocation(String homeLocation) {
-		return assetRepository.findAllByHomeLocation(homeLocation);
-	}
-
-	@Override
-	public List<String> findDistinctHomeLocation() {
-		return assetRepository.findDistinctHomeLocation();
-	}
-
-//	@Override
-//	public List<BookingDTO> fetchBookingDTOInnerJoin() {
-//		return assetRepository.fetchBookingDTOInnerJoin();
-//	}
-	
-	
 }

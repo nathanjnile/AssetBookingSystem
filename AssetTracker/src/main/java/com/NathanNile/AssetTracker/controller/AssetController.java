@@ -76,43 +76,6 @@ public class AssetController {
 		return "assets/list-assets";
 	}
 	
-	@GetMapping("/list/bristol")
-	public String showListBristol(Model theModel) {
-		
-		String location = "Bristol";
-		
-		List<Asset> theAssets = assetService.findAllByHomeLocation(location);
-		
-		theModel.addAttribute("assets", theAssets);
-		
-		return "assets/list-assets";
-	}
-	
-	@GetMapping("/list/bath")
-	public String showListBath(Model theModel) {
-		
-		String location = "Bath";
-		
-		List<Asset> theAssets = assetService.findAllByHomeLocation(location);
-		
-		theModel.addAttribute("assets", theAssets);
-		
-		return "assets/list-assets";
-	}
-	
-	@GetMapping("/list/portishead")
-	public String showListPortishead(Model theModel) {
-		
-		String location = "Portishead";
-		
-		List<Asset> theAssets = assetService.findAllByHomeLocation(location);
-		
-		theModel.addAttribute("assets", theAssets);
-		
-		return "assets/list-assets";
-	}
-	
-	
 	
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
@@ -147,19 +110,15 @@ public class AssetController {
 	@GetMapping("/showFormForBooking")
 	public String showFormForBooking(@RequestParam("assetId") int theId, Model theModel) {
 		
-		// get the employee from the service
-		//Asset theAsset = assetService.findById(theId);
+		
 		Booking theBooking = new Booking(theId);
 		
-		// set employee as a model attribute to pre-populate the form
 		theModel.addAttribute("booking", theBooking);
 		
 		Asset theAsset = assetService.findById(theId);
 		
 		theModel.addAttribute("asset", theAsset);
 				
-		// send over to our form
-		
 		return "assets/booking-form";
 	}
 	

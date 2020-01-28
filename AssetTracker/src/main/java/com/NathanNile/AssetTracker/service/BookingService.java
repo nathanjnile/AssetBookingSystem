@@ -14,4 +14,7 @@ public interface BookingService {
 	public void save(Booking theBooking);
 	
 	public void deleteById(int theId);
+	
+	public List<Booking> findAllByOrderByStartOfBookingAsc();
+	
 }

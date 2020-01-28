@@ -10,7 +10,6 @@ import com.NathanNile.AssetTracker.entity.Booking;
 public interface BookingRepository extends JpaRepository<Booking, Integer> {
 	
 	
-	// add method to sort by last name
+	List<Booking> findAllByOrderByStartOfBookingAsc();
 	
-	// public List<Asset> findAllByOrderByLastNameAsc();
 }

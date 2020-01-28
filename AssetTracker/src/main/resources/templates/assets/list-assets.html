@@ -52,28 +52,12 @@
 		Machine Tools
 	</a>
 	
-	<a th:href="@{/assets/list/bristol}"
-	   class="btn btn-primary btn-sm mb-3">
-		Bristol
-	</a>
-	
-	<a th:href="@{/assets/list/bath}"
-	   class="btn btn-primary btn-sm mb-3">
-		Bath
-	</a>
-	
-	<a th:href="@{/assets/list/portishead}"
-	   class="btn btn-primary btn-sm mb-3">
-		Portishead
-	</a>
-	
 	<table class="table table-bordered table-striped table-hover">
 		<thead class="thead-dark">
 			<tr>
 				<th>Asset Name</th>
 				<th>Asset Type</th>
 				<th>Owner Email</th>		
-				<th>Home Location</th>
 				<th>Id</th>
 				<th>Action</th>
 						
@@ -87,7 +71,6 @@
 				<td th:text="${tempAsset.assetName}"/>
 				<td th:text="${tempAsset.assetType}"/>
 				<td th:text="${tempAsset.assetOwnerEmail}"/>
-				<td th:text="${tempAsset.homeLocation}"/>
 				<td th:text="${tempAsset.id}"/>
 				<td style="text-align:center">
 				

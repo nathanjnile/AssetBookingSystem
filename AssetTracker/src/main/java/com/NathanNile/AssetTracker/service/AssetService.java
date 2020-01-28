@@ -16,10 +16,6 @@ public interface AssetService {
 	
 	public List<Asset> findAllByAssetType(String assetType);
 	
-	public List<Asset> findAllByHomeLocation(String homeLocation);
-	
-	public List<String> findDistinctHomeLocation();
-	
 	public Asset findById(int theId);
 	
 	public void save(Asset theAsset);
