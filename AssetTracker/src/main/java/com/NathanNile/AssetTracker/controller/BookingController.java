@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.NathanNile.AssetTracker.entity.Asset;
 import com.NathanNile.AssetTracker.entity.Booking;
@@ -29,6 +30,16 @@ public class BookingController {
 	public String showBookingsList(Model theModel) {
 		
 		List<Booking> theBookings = bookingService.findAll();
+		
+		theModel.addAttribute("bookings", theBookings);
+		
+		return "bookings/list-bookings";
+	}
+	
+	@GetMapping("/showIndividualBookingsList")
+	public String showIndividualBookingsList(@RequestParam("assetId") int theId, Model theModel) {
+		 
+		List<Booking> theBookings = bookingService.findByAssetIdOrderByStartOfBookingAsc(theId);
 		
 		theModel.addAttribute("bookings", theBookings);
 		

@@ -81,7 +81,6 @@
 				<th>Booker First Name</th>
 				<th>Booker Last Name</th>
 				<th>Booker Email</th>		
-				<th>Office Location</th>
 				<th>Start of Booking</th>
 				<th>End of Booking</th>
 						
@@ -90,12 +89,11 @@
 	
 	
 		<tbody>
-			<tr th:each="tempBookings : ${asset.bookings}">
+			<tr th:each="tempBookings : ${bookingslist}">
 			
 				<td th:text="${tempBookings.bookerFirstName}"/>
 				<td th:text="${tempBookings.bookerLastName}"/>
 				<td th:text="${tempBookings.bookerEmail}"/>
-				<td th:text="${tempBookings.officeLocation}"/>
 				<td th:text="${tempBookings.startOfBooking}"/>
 				<td th:text="${tempBookings.endOfBooking}"/>
 				

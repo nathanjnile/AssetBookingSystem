@@ -74,6 +74,11 @@
 				<td th:text="${tempAsset.id}"/>
 				<td style="text-align:center">
 				
+					<a th:href="@{/bookings/showIndividualBookingsList(assetId=${tempAsset.id})}"
+					   class="btn btn-warning btn-sm">
+						Show Bookings
+					</a>
+				|
 					<a th:href="@{/assets/showFormForBooking(assetId=${tempAsset.id})}"
 					   class="btn btn-success btn-sm">
 						Book

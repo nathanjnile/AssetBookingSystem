@@ -18,7 +18,7 @@
 
 
 <div class="container">
-	<h3>Home Page</h3>
+	<h3>Asset Booking System</h3>
 	<hr>
 
 </div>
@@ -26,7 +26,7 @@
 <div class="container">
 
 	<a th:href="@{/assets/list}"
-	   class="btn btn-primary btn-lg mb-3">
+	   class="btn btn-primary btn-lg mb-3 center">
 		List All Assets
 	</a>
 	
@@ -46,47 +46,6 @@
 	   class="btn btn-primary btn-sm mb-3">
 		Machine Tools
 	</a>
-	
-	<a th:href="@{/assets/list/bristol}"
-	   class="btn btn-primary btn-sm mb-3">
-		Bristol
-	</a>
-	
-	<a th:href="@{/assets/list/bath}"
-	   class="btn btn-primary btn-sm mb-3">
-		Bath
-	</a>
-	
-	<a th:href="@{/assets/list/portishead}"
-	   class="btn btn-primary btn-sm mb-3">
-		Portishead
-	</a>
-	
-	<div>
-	
-	<table class="table table-bordered table-striped table-hover">
-		<thead class="thead-dark">
-			<tr>
-				<th>Locations</th>
-				
-						
-			</tr>
-		</thead>
-	
-	
-		<tbody>
-			<tr th:each="tempLocation : ${locations}">
-			
-				<td th:text="${tempLocation}"/>
-			
-				
-			</tr>
-			
-		</tbody>
-		
-	</table>
-	
-	
 	</div>
 	
 </body>

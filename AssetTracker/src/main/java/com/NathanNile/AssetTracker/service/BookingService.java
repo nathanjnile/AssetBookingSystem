@@ -17,4 +17,6 @@ public interface BookingService {
 	
 	public List<Booking> findAllByOrderByStartOfBookingAsc();
 	
+	public List<Booking> findByAssetIdOrderByStartOfBookingAsc(int assetId);
+	
 }

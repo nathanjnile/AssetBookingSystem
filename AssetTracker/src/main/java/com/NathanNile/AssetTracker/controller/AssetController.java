@@ -118,6 +118,10 @@ public class AssetController {
 		Asset theAsset = assetService.findById(theId);
 		
 		theModel.addAttribute("asset", theAsset);
+		
+		List<Booking> theBookings = bookingService.findByAssetIdOrderByStartOfBookingAsc(theId);
+		
+		theModel.addAttribute("bookingslist", theBookings);
 				
 		return "assets/booking-form";
 	}
