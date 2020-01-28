@@ -18,8 +18,21 @@
 
 
 <div class="container">
-	<h3>Booking Directory</h3>
+	<h3>Booking List</h3>
 	<hr>
+	
+	<b class="h4 mb-4">Asset Name:</b>
+		<br>
+		<b class="h5 mb-5" th:text="${asset.assetName}"></b>
+		<br><br/>
+		<b class="h4 mb-4">Asset Type:</b>
+		<br>
+		<b class="h5 mb-5" th:text="${asset.assetType}"></b>
+		<br><br/>
+		<b class="h4 mb-4">Asset Owner's Email:</b>
+		<br>
+		<b class="h5 mb-5" th:text="${asset.assetOwnerEmail}"></b>
+		<br><br/>
 	
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
@@ -50,6 +63,15 @@
 	</table>
 
 </div>
+
+<div class="container">
+	
+	<hr>
+		<a th:href="@{/assets/list}">Back to Asset List</a>
+		
+	
+	
+	</div>
 
 </body>
  </html>

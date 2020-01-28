@@ -18,6 +18,9 @@ import com.NathanNile.AssetTracker.service.BookingService;
 @RequestMapping("/bookings")
 public class BookingController {
 	
+	@Autowired
+	private AssetService assetService;
+	
 	private BookingService bookingService;
 	
 	@Autowired
@@ -42,6 +45,10 @@ public class BookingController {
 		List<Booking> theBookings = bookingService.findByAssetIdOrderByStartOfBookingAsc(theId);
 		
 		theModel.addAttribute("bookings", theBookings);
+		
+		Asset theAsset = assetService.findById(theId);
+		
+		theModel.addAttribute("asset", theAsset);
 		
 		return "bookings/list-bookings";
 	}
