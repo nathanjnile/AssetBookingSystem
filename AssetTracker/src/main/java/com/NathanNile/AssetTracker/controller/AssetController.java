@@ -1,6 +1,5 @@
 package com.NathanNile.AssetTracker.controller;
 
-import java.net.http.HttpClient.Redirect;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
