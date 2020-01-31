@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.NathanNile.AssetTracker.entity.Asset;
 import com.NathanNile.AssetTracker.entity.Booking;
+import com.NathanNile.AssetTracker.mail.EmailService;
 import com.NathanNile.AssetTracker.service.AssetService;
 import com.NathanNile.AssetTracker.service.BookingService;
 
@@ -23,6 +24,9 @@ public class AssetController {
 	
 	@Autowired
 	private BookingService bookingService;
+	
+	@Autowired
+	private EmailService emailService;
 	
 	private AssetService assetService;
 	
@@ -140,11 +144,15 @@ public class AssetController {
 	@PostMapping("/saveBooking")
 	public String saveBooking(@ModelAttribute("booking") Booking theBooking) {
 		
-		// save the employee
 		bookingService.save(theBooking);
 		
+		String assetName = assetService.findById(theBooking.getAssetId()).getAssetName();
 		
-		// use a redirect to prevent duplicate submissions
+		emailService.sendMail(theBooking.getBookerEmail(), "New Booking", "Hello " + theBooking.getBookerFirstName() + " " + 
+				theBooking.getBookerLastName() + " you have booked a " + assetName + " from " + theBooking.getStartOfBooking() + 
+				" to " + theBooking.getEndOfBooking());
+		
+		
 		return "redirect:/assets/list";
 	}
 	
