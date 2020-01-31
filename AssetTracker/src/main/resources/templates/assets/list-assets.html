@@ -70,7 +70,8 @@
 				<th>Asset Type</th>
 				<th>Owner Email</th>		
 				<th>Id</th>
-				<th>Action</th>
+				<th>Bookings</th>
+				<th>Update</th>
 						
 			</tr>
 		</thead>
@@ -83,30 +84,32 @@
 				<td th:text="${tempAsset.assetType}"/>
 				<td th:text="${tempAsset.assetOwnerEmail}"/>
 				<td th:text="${tempAsset.id}"/>
-				<td style="text-align:center">
+				<td>
 				
-					<a th:href="@{/bookings/showIndividualBookingsList(assetId=${tempAsset.id})}"
+			<!--  		<a th:href="@{/bookings/showIndividualBookingsList(assetId=${tempAsset.id})}"
 					   class="btn btn-info btn-sm">
 						Show Bookings
 					</a>
-				|
+				| -->
 					<a th:href="@{/assets/showFormForBooking(assetId=${tempAsset.id})}"
 					   class="btn btn-warning btn-sm">
-						Book
+						Bookings Page
 					</a>
-				|	
+				</td>
+				
+				<td>	
 					<a th:href="@{/assets/showFormForUpdate(assetId=${tempAsset.id})}"
-					   class="btn btn-info btn-sm">
-						Update
+					   class="btn btn-warning btn-sm">
+						Update Asset
 					</a>
-		
+		<!-- 
 				|
 					<a th:href="@{/assets/delete(assetId=${tempAsset.id})}"
 					   class="btn btn-warning btn-sm"
 					   onclick="if (!(confirm('Are you sure you want to delete this asset?'))) return false">
 						Delete
 					</a>
-			
+			-->
 				</td>
 				
 				

@@ -26,7 +26,7 @@
   <div class="row">
   
 	
-	<div class="col-sm">
+	<div class="col-4">
 	
 		<b class="h4 mb-4">Asset Name:</b>
 		<br>
@@ -50,19 +50,19 @@
 				<input type="hidden" th:field="*{assetId}"/>  
 						 
 				<input type="text" th:field="*{bookerFirstName}"
-					   class="form-control mb-3 col-10" placeholder="Booker First Name">
+					   class="form-control mb-3 col-7" placeholder="Booker First Name">
 					   
 				<input type="text" th:field="*{bookerLastName}"
-					   class="form-control mb-3 col-10" placeholder="Booker Last Name">
+					   class="form-control mb-3 col-7" placeholder="Booker Last Name">
 					   
 				<input type="text" th:field="*{bookerEmail}"
-					   class="form-control mb-3 col-10" placeholder="Booker Email">
+					   class="form-control mb-3 col-7" placeholder="Booker Email">
 				   
 				<input type="date" th:field="*{startOfBooking}"
-					   class="form-control mb-3 col-10" placeholder="startOfBooking">
+					   class="form-control mb-3 col-7" placeholder="startOfBooking">
 					   
 				<input type="date" th:field="*{endOfBooking}"
-					   class="form-control mb-3 col-10" placeholder="endOfBooking">	   	   
+					   class="form-control mb-3 col-7" placeholder="endOfBooking">	   	   
 		
 				<button type="submit" class="btn btn-info col-3" onclick="if (!(confirm('Are you sure you want to book this asset?'))) return false">Save</button>
 		
@@ -71,11 +71,11 @@
 		
 	</div>
 	
-	<div class="col-sm">
+	<div class="col-8">
 	
+	Bookings
 	
-	
-	<table class="table table-bordered table-striped table-hover">
+	<table class="table table-bordered table-striped table-hover w-auto small">
 		<thead class="thead-dark">
 			<tr>
 				<th>Booker First Name</th>
@@ -83,6 +83,7 @@
 				<th>Booker Email</th>		
 				<th>Start of Booking</th>
 				<th>End of Booking</th>
+				<th>Delete Booking</th>
 						
 			</tr>
 		</thead>
@@ -96,6 +97,16 @@
 				<td th:text="${tempBookings.bookerEmail}"/>
 				<td th:text="${tempBookings.startOfBooking}"/>
 				<td th:text="${tempBookings.endOfBooking}"/>
+				<td>
+				
+				<a 
+			th:href="@{/assets/deletebooking(bookingId=${tempBookings.bookingId} ,assetId=${tempBookings.assetId})}"
+		    class="btn btn-danger btn-sm"
+		    onclick="if (!(confirm('Are you sure you want to delete this booking?'))) return false">
+			Delete
+				</a>
+				
+				<td/>
 				
 			</tr>
 			

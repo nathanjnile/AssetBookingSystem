@@ -37,7 +37,8 @@ public class BookingServiceImpl implements BookingService {
 			theBooking = result.get();
 		}
 		else {
-			throw new RuntimeException("Did not find asset id - " + theId);
+			return null;
+			//throw new RuntimeException("Did not find booking id - " + theId);
 		}
 		
 		return theBooking;

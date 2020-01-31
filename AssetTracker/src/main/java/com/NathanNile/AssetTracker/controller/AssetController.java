@@ -1,5 +1,6 @@
 package com.NathanNile.AssetTracker.controller;
 
+import java.net.http.HttpClient.Redirect;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,13 +81,8 @@ public class AssetController {
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 		
-		// create model attribute to bind form data
 		Asset theAsset = new Asset();
-		
-//		Booking theBooking = new Booking();
-//		
-//		theModel.addAttribute("booking", theBooking);
-		
+			
 		theModel.addAttribute("asset", theAsset);
 		
 		return "assets/asset-form";
@@ -96,20 +92,15 @@ public class AssetController {
 	@GetMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("assetId") int theId, Model theModel) {
 		
-		// get the employee from the service
 		Asset theAsset = assetService.findById(theId);
 		
-		// set employee as a model attribute to pre-populate the form
 		theModel.addAttribute("asset", theAsset);
-				
-		// send over to our form
 		
 		return "assets/asset-form";
 	}
 	
 	@GetMapping("/showFormForBooking")
 	public String showFormForBooking(@RequestParam("assetId") int theId, Model theModel) {
-		
 		
 		Booking theBooking = new Booking(theId);
 		
@@ -140,11 +131,11 @@ public class AssetController {
 	@GetMapping("/delete")
 	public String delete(@RequestParam("assetId") int theId) {
 		
-		// Delete employee
 		assetService.deleteById(theId);
 		
 		return "redirect:/assets/list";
 	}
+	
 	
 	@PostMapping("/saveBooking")
 	public String saveBooking(@ModelAttribute("booking") Booking theBooking) {
@@ -157,5 +148,16 @@ public class AssetController {
 		return "redirect:/assets/list";
 	}
 	
+	@GetMapping("/deletebooking")
+	public String deleteBooking(@RequestParam("bookingId") int theBookingId, @RequestParam("assetId") int theAssetId, Model theModel) {
+		
+		if (bookingService.findById(theBookingId) == null) {
+			return showFormForBooking(theAssetId, theModel);
+		}
+		
+		bookingService.deleteById(theBookingId);
+		
+		return showFormForBooking(theAssetId, theModel);
+	}
 	
 }
