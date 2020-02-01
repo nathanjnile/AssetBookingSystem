@@ -23,7 +23,7 @@ public class EmailService {
         mailMessage.setSubject(subject);
         mailMessage.setText(message);
 
-        mailMessage.setFrom("garybarlow@inbox.mailtrap.io");
+        mailMessage.setFrom("testmail@inbox.mailtrap.io");
 
         javaMailSender.send(mailMessage);
     }
