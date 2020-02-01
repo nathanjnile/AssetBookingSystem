@@ -33,13 +33,28 @@
 					   class="form-control mb-4 col-4" placeholder="Asset Name">
 					   <p th:if="${#fields.hasErrors('assetName')}"  th:errors="*{assetName}">Error</p>	
 					   
-				<input type="text" th:field="*{assetType}"
+		<!--  		<input type="text" th:field="*{assetType}"
 					   class="form-control mb-4 col-4" placeholder="Asset Type">
-					   <p th:if="${#fields.hasErrors('assetType')}"  th:errors="*{assetType}">Error</p>	
+					   <p th:if="${#fields.hasErrors('assetType')}"  th:errors="*{assetType}">Error</p>	-->
 					   
 				<input type="text" th:field="*{assetOwnerEmail}"
 					   class="form-control mb-4 col-4" placeholder="Email">
 					   <p th:if="${#fields.hasErrors('assetOwnerEmail')}"  th:errors="*{assetOwnerEmail}">Error</p>	
+					   
+		<!--  		<select th:field="*{assetType}" >
+  					  <option th:text="Hand Tools"></option>
+   					  <option th:text="Power Tools"></option>
+   					  <option th:text="Machine Tools"></option>
+				</select> -->
+				
+				<select th:field="*{assetType}" class="dropdown btn-sm">
+				
+				    <option th:value="'Hand Tools'" th:text="HandTools"></option>
+				    <option th:value="'Power Tools'" th:text="PowerTools"></option>
+				    <option th:value="'Machine Tools'" th:text="MachineTools"></option>
+				</select>	 
+				  
+				<br></br>
 		
 				<button type="submit" class="btn btn-info col-2">Save</button>
 				
