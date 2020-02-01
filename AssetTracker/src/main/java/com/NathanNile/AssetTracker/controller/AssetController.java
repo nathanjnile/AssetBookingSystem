@@ -2,14 +2,18 @@ package com.NathanNile.AssetTracker.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.NathanNile.AssetTracker.entity.Asset;
 import com.NathanNile.AssetTracker.entity.Booking;
@@ -141,8 +145,16 @@ public class AssetController {
 	
 	
 	@PostMapping("/saveBooking")
-	public String saveBooking(@ModelAttribute("booking") Booking theBooking) {
+	public String saveBooking(@Valid @ModelAttribute("booking") Booking theBooking, BindingResult theBindingResult, Model theModel, RedirectAttributes redirectAttributes) {
 		
+		if(theBindingResult.hasErrors()) {
+			
+			redirectAttributes.addAttribute("assetId", theBooking.getAssetId());
+			//return "assets/booking-form";
+			//return showFormForBooking(theBooking.getAssetId(), theModel);
+			return "redirect:/assets/showFormForBooking";
+		} else {
+			
 		bookingService.save(theBooking);
 		
 		String assetName = assetService.findById(theBooking.getAssetId()).getAssetName();
@@ -153,18 +165,20 @@ public class AssetController {
 		
 		
 		return "redirect:/assets/list";
+		}
 	}
 	
 	@GetMapping("/deletebooking")
-	public String deleteBooking(@RequestParam("bookingId") int theBookingId, @RequestParam("assetId") int theAssetId, Model theModel) {
+	public String deleteBooking(@RequestParam("bookingId") int theBookingId, @RequestParam("assetId") int theAssetId, Model theModel, RedirectAttributes redirectAttributes) {
 		
-		if (bookingService.findById(theBookingId) == null) {
-			return showFormForBooking(theAssetId, theModel);
-		}
+//		if (bookingService.findById(theBookingId) == null) {
+//			return showFormForBooking(theAssetId, theModel);
+//		}
 		
 		bookingService.deleteById(theBookingId);
 		
-		return showFormForBooking(theAssetId, theModel);
+		redirectAttributes.addAttribute("assetId", theAssetId);
+		return "redirect:/assets/showFormForBooking";
 	}
 	
 }

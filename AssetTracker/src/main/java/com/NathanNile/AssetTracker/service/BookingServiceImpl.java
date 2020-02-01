@@ -37,8 +37,7 @@ public class BookingServiceImpl implements BookingService {
 			theBooking = result.get();
 		}
 		else {
-			return null;
-			//throw new RuntimeException("Did not find booking id - " + theId);
+			throw new RuntimeException("Did not find booking id - " + theId);
 		}
 		
 		return theBooking;
