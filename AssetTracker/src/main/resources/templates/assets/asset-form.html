@@ -31,12 +31,15 @@
 						 
 				<input type="text" th:field="*{assetName}"
 					   class="form-control mb-4 col-4" placeholder="Asset Name">
+					   <p th:if="${#fields.hasErrors('assetName')}"  th:errors="*{assetName}">Error</p>	
 					   
-				<input type="text" th:field="*{AssetType}"
+				<input type="text" th:field="*{assetType}"
 					   class="form-control mb-4 col-4" placeholder="Asset Type">
+					   <p th:if="${#fields.hasErrors('assetType')}"  th:errors="*{assetType}">Error</p>	
 					   
 				<input type="text" th:field="*{assetOwnerEmail}"
 					   class="form-control mb-4 col-4" placeholder="Email">
+					   <p th:if="${#fields.hasErrors('assetOwnerEmail')}"  th:errors="*{assetOwnerEmail}">Error</p>	
 		
 				<button type="submit" class="btn btn-info col-2">Save</button>
 				

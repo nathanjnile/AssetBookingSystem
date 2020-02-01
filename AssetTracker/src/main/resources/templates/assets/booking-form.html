@@ -51,7 +51,7 @@
 						 
 				<input type="text" th:field="*{bookerFirstName}" 
 					   class="form-control mb-3 col-7" placeholder="Booker First Name">
-			  	<p th:if="${#fields.hasErrors('bookerFirstName')}"  th:errors="*{bookerFirstName}"></p>	   
+			  	<p th:if="${#fields.hasErrors('bookerFirstName')}"  th:errors="*{bookerFirstName}">Error</p>	   
 					   
 				<input type="text" th:field="*{bookerLastName}"
 					   class="form-control mb-3 col-7" placeholder="Booker Last Name">

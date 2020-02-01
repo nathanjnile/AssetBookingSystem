@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -24,12 +26,18 @@ public class Asset {
 	@Column(name = "id")
 	private int id;
 	
+	@NotNull(message = "null")
+	@Size(min = 1, message = "Asset Name: Nothing Entered!")
 	@Column(name = "asset_name")
 	private String assetName;
 	
+	@NotNull(message = "null")
+	@Size(min = 1, message = "Asset Type: Nothing Entered!")
 	@Column(name = "asset_type")
 	private String assetType;
 	
+	@NotNull(message = "null")
+	@Size(min = 1, message = "Asset Owner Email: Nothing Entered!")
 	@Column(name = "asset_owner_email")
 	private String assetOwnerEmail;
 	

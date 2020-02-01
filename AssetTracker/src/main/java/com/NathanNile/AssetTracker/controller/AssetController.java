@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -126,13 +127,19 @@ public class AssetController {
 	
 	
 	@PostMapping("/save")
-	public String saveAsset(@ModelAttribute("asset") Asset theAsset) {
+	public String saveAsset(@Valid @ModelAttribute("asset") Asset theAsset, BindingResult theBindingResult) {
+		
+		if(theBindingResult.hasErrors()) {
+			System.out.println(theBindingResult.getAllErrors().toString());
+			return "assets/asset-form";
+		} else {
 		
 		// save the employee
 		assetService.save(theAsset);
 		
 		// use a redirect to prevent duplicate submissions
 		return "redirect:/assets/list";
+		}
 	}
 	
 	@GetMapping("/delete")
@@ -147,13 +154,11 @@ public class AssetController {
 	@PostMapping("/saveBooking")
 	public String saveBooking(@Valid @ModelAttribute("booking") Booking theBooking, BindingResult theBindingResult, Model theModel, RedirectAttributes redirectAttributes) {
 		
-		if(theBindingResult.hasErrors()) {
-			
-			redirectAttributes.addAttribute("assetId", theBooking.getAssetId());
-			//return "assets/booking-form";
-			//return showFormForBooking(theBooking.getAssetId(), theModel);
-			return "redirect:/assets/showFormForBooking";
-		} else {
+//		if(theBindingResult.hasErrors()) {
+//			
+//			redirectAttributes.addAttribute("assetId", theBooking.getAssetId());
+//			return "redirect:/assets/showFormForBooking";
+//		} else {
 			
 		bookingService.save(theBooking);
 		
@@ -164,17 +169,14 @@ public class AssetController {
 				" to " + theBooking.getEndOfBooking());
 		
 		
-		return "redirect:/assets/list";
-		}
+		redirectAttributes.addAttribute("assetId", theBooking.getAssetId());
+		return "redirect:/assets/showFormForBooking";
+//		}
 	}
 	
 	@GetMapping("/deletebooking")
 	public String deleteBooking(@RequestParam("bookingId") int theBookingId, @RequestParam("assetId") int theAssetId, Model theModel, RedirectAttributes redirectAttributes) {
-		
-//		if (bookingService.findById(theBookingId) == null) {
-//			return showFormForBooking(theAssetId, theModel);
-//		}
-		
+			
 		bookingService.deleteById(theBookingId);
 		
 		redirectAttributes.addAttribute("assetId", theAssetId);
