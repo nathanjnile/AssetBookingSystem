@@ -7,5 +7,3 @@ The main page displays a list of assets with buttons to book the asset or update
 - The update asset button will go to a pre populated form to change the assets details.
 
 AspectJ has been added for logging.
-
-https://www.youtube.com/watch?v=pcLSzetha1Y
